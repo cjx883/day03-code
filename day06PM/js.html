@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head> 
+	<body>
+		<script type="text/javascript">
+			let json  = {"name":"Tom","age":18};
+			alert(json.name+"-"+json.age);//通过json对象来获取数据
+			let students=[];
+			students.push({"id":1,"name":"name1"})
+			students.push({"id":2,"name":"name2"})
+			students.push({"id":3,"name":"name3"})
+			//遍历数组
+			for(let i = 0; i<students.length;i++){
+				document.writeln(students[i].id+"-"+students[i].name)
+				document.write("<br>");
+			}
+		</script>
+	</body>
+</html>

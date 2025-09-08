@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form onsubmit="return form_validate()">
+			<label for="email">Email:</label>
+			<input id="email" name="email" type="email"/>
+			<br>
+			<label for="username">用户名:</label>
+			<input id="username" name="username"/>
+			<br>
+			<label for="age">年龄:</label>
+			<input id="age" name="age" value="18" min="16" max="30"  type="number"/>
+		<input type="submit"/>
+		</form>
+		
+	</body>
+	<script>
+		//自定义表单效验
+		function form_validate(){
+			let email = document.getElementById("email");
+			//xx@xx.com/cn/govr
+			let reg = /^[A-Za-z0-9]+@[A-Za-z0-9]+\.(com|cn|gov\.cn|org)$/
+			if(reg.test(email.value)){
+				return true;//因为下面需要校验，不能退出
+			}//false=return true;
+			else{
+				alert("Email格式不正确");
+				return false;
+			}
+			//上面是对Email进行校验，下面是对用户名进行校验，表单中
+			//所有需要校验的元素都要实现教养规则
+			let username = document.getElementById("username");
+			reg = /^\w{4,8}$/;// \w表示大小写字母6+数字+下划线
+			if(reg.test(username.value)){
+				//return true;
+			}else{用户名格式不正确:大小写字母+数字+下划线共4,8位");
+				return false;
+			}
+		}
+	</script>
+</html>

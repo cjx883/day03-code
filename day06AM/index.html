@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#nickname{
+				width:300px;
+			}
+		</style>
+	</head>
+	<body>
+		<input id="username"><button onclick="checkUername()">检查</button>
+		<input type="button" value="检查" onclick="checkUername()">
+		<br>
+		<input id="nickname" placeholder="请输入昵称,3-8个字符,可以是汉字或字母或数字"/>
+		<button onclick="checkNickname()">检查</button>
+	</body>
+	<script>
+		function checkUername(){
+			/*被效验的对象*/
+			let username = document.getElementById("username");
+			// if(username.value == ""){
+			// 	alert("请输入用户名")
+			// }
+			//trim去首位空格
+			// if(username.value.trim() == ""){
+			// 	alert("请输入用户名")其中的内容是可以允许的内容
+			// }
+			//使用正则表达式效验
+			// let reg = /^hello$/;//判断是不是完全相同
+			// let reg = /^hello$/i;//完全相同，不区分大小写
+			//中括号代表取值范围，
+			// let reg = /^[A-Za-z0-9]{1,3}$/;//至少一次，至多3次
+			//用户名最少4个字符，最多10个字符，可以是数字字母的组合
+			let reg = /^[A-Za-z0-9]{4,10}$/
+			//判断输入的内容是不是hello
+			if(reg.test(username.value)){
+			alert("正确")
+			}else{
+				alert("不正确")
+			}
+		}
+		function checkNickname(){
+			//获取昵称文本框
+			let nickname = document.getElementById("nickname")
+			let reg = /^[A-Za-z0-9\u4e00-\u9fa5]{3,8}$/;
+			if(reg.test(nickname.value)){
+				alert("正确")
+			}else{
+				alert(nickname.placeholder);
+			}
+		}
+	</script>
+</html>
